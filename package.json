@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts": "^4.0.3"
   },
   "scripts": {
-    "dev": "BROWSER=none react-scripts start",
+    "electron-dev": "concurrently \"SET BROWSER=none&&npm run start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "react-scripts start"
   },
   "browserslist": [
     ">0.2%",
